@@ -1,0 +1,12 @@
+- job:
+    name: run_doit
+    run: playbooks/dnm1.yaml
+
+- project:
+    check:
+      jobs:
+        - run_doit
+    gate:
+      jobs:
+        - run_doit
+

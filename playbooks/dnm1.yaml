@@ -1,0 +1,14 @@
+- name: My first play
+  hosts: localhost
+  tasks:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+   - name: run doit command
+     ansible.builtin.shell: doit
+     args:
+       chdir: /home/kerimtugce/development_ws/tutorial-doit/
+     register: out
+   - debug: var=out.stdout_lines
+   - name: Print message
+     ansible.builtin.debug:
+       msg: Hello world
